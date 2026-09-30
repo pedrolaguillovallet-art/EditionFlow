@@ -1,0 +1,15 @@
+{
+  "name": "editionflow",
+  "version": "0.1.0",
+  "description": "Estudio local para crear vídeos animados con código junto a Claude (Claude Code).",
+  "type": "module",
+  "private": true,
+  "bin": { "editionflow": "server/index.js" },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js --no-open",
+    "check": "node --check server/index.js && node scripts/check.js"
+  },
+  "engines": { "node": ">=18.17" },
+  "license": "MIT"
+}
