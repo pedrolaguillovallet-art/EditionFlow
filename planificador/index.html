@@ -72,6 +72,16 @@
 </section>
 
 <div id="toast" role="status"></div>
+<div id="new-dlg" class="dlg-back" hidden>
+  <form id="new-form" class="dlg" role="dialog" aria-labelledby="new-h">
+    <h2 id="new-h">Proyecto nuevo</h2>
+    <p class="muted">Se borrarán los planos y la canción actuales. Si quieres conservarlos, pulsa antes «Guardar».</p>
+    <label for="new-dur">Duración de la canción (segundos)</label>
+    <input id="new-dur" type="number" min="1" step="1">
+    <p class="muted small">Al cargar la canción se ajusta sola a su duración real.</p>
+    <div class="dlg-btns"><button type="button" id="new-cancel">Cancelar</button><button type="submit" class="primary">Crear proyecto</button></div>
+  </form>
+</div>
 <div id="tl-tip"></div>
 <input id="audio-file" type="file" accept="audio/*" hidden>
 <input id="json-file" type="file" accept=".json,application/json" hidden>

@@ -183,3 +183,13 @@ table.rodaje td.wrap{white-space:normal;min-width:220px}
   table.rodaje tr.grp td{background:#ddd}
   table.rodaje td,table.rodaje th{border-bottom-color:#bbb}
 }
+
+/* ---------- diálogo ---------- */
+.dlg-back[hidden]{display:none}
+.dlg-back{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:80;padding:16px}
+.dlg{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px;width:min(380px,100%);display:flex;flex-direction:column;gap:10px}
+.dlg h2{margin:0;font-size:16px}
+.dlg p{margin:0}
+.dlg .small{font-size:12px}
+.dlg-btns{display:flex;justify-content:flex-end;gap:8px;margin-top:6px}
+@media print{.dlg-back{display:none !important}}

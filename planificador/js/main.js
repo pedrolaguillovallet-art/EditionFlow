@@ -80,11 +80,18 @@
   });
 
   $("btn-new").addEventListener("click", function () {
-    if (!confirm("¿Crear un proyecto nuevo? Los cambios no guardados en un archivo se perderán.")) return;
-    var v = prompt("Duración de la canción en segundos", "180");
-    if (v === null) return;
-    var d = parseFloat(String(v).replace(",", "."));
-    if (!(d > 0) || d > 36000) { PV.toast("Duración no válida"); return; }
+    $("new-dur").value = Math.round(PV.project.duration) || 180;
+    $("new-dlg").hidden = false;
+    $("new-dur").focus(); $("new-dur").select();
+  });
+  function closeNew() { $("new-dlg").hidden = true; }
+  $("new-cancel").addEventListener("click", closeNew);
+  $("new-dlg").addEventListener("keydown", function (e) { if (e.key === "Escape") closeNew(); e.stopPropagation(); });
+  $("new-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var d = parseFloat(String($("new-dur").value).replace(",", "."));
+    if (!(d > 0) || d > 36000) { PV.toast("Escribe una duración en segundos, por ejemplo 180"); return; }
+    closeNew();
     PV.clearAudio();
     PV.replaceProject(PV.newProject(d));
   });
